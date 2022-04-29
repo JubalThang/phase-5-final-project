@@ -10,55 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_26_154601) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_28_142743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "churches", force: :cascade do |t|
+  create_table "churches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "uuid"
-    t.bigint "user_id", null: false
+    t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_churches_on_user_id"
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "uuid"
-    t.bigint "church_id", null: false
+    t.uuid "church_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["church_id"], name: "index_departments_on_church_id"
   end
 
-  create_table "item_histories", force: :cascade do |t|
+  create_table "item_histories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "dop"
-    t.string "uuid"
     t.float "price"
-    t.string "receive_img"
-    t.bigint "item_id", null: false
+    t.string "receive_image"
+    t.uuid "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_histories_on_item_id"
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "model_no"
     t.string "sn"
-    t.string "uuid"
     t.string "image_url"
-    t.bigint "department_id", null: false
+    t.uuid "department_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
+    t.string "user_id"
     t.index ["department_id"], name: "index_items_on_department_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "emial"
-    t.string "uuid"
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
@@ -69,5 +63,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_154601) do
   add_foreign_key "departments", "churches"
   add_foreign_key "item_histories", "items"
   add_foreign_key "items", "departments"
-  add_foreign_key "items", "users"
 end

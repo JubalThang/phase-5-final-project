@@ -1,7 +1,10 @@
 class Item < ApplicationRecord
-  # serial number must be unique when same model_no
-  validates :sn, presence: true, unique: {scope: [:model_no]}
 
+  validates :sn, uniqueness: { scope: [ :model_no ] }
+
+  has_one :item_history
   belongs_to :department
-  belongs_to :user
+
+
+  accepts_nested_attributes_for :item_history
 end

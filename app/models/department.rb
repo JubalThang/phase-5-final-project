@@ -1,4 +1,9 @@
 class Department < ApplicationRecord
-    validates :name, presence: true, uniqueness: true
-    belongs_to :church
+
+  validates :name, presence: true, uniqueness: true
+
+  belongs_to :church
+  
+  
+  has_many :items
 end

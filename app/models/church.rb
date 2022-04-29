@@ -1,7 +1,7 @@
 class Church < ApplicationRecord
-  validates :name, presence: true
-  
+  validates :name, presence: true, uniqueness: true
+
   belongs_to :user
-  has_many :departments, dependent: :destroy
-  has_many :items, through: :departments , dependent: :destroy
+  has_many :departments
+  has_many :items, through: :departments
 end

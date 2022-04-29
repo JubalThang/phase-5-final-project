@@ -4,21 +4,21 @@ class Api::UsersController < ApplicationController
     end
 
     def show 
+        find_user
         render json: @user, status: :ok
     end
 
     def create
         user = User.create!(user_params)
-        user.uuid = SecureRandom.uuid
         render json: user, status: :created
     end 
 
     private 
     def find_user 
-        @user = User.find_by(uuid: params[:uuid])
+        @user = User.find_by_id(params[:id])
     end
 
     def user_params 
-        params.require(:user).permit(:email, :password, :password_confirmation, church_attributes: [:name])
+        params.require(:user).permit(:email, :password, :admin ,:password_confirmation, church_attributes: [:name])
     end
 end
