@@ -24,9 +24,9 @@ module Phase5FinalProject
     config.load_defaults 7.0
 
     config.middleware.use ActionDispatch::Cookies 
-    config.middleware.use ActionDispatch::CookieStore 
+    config.middleware.use ActionDispatch::Session::CookieStore 
     config.action_disptch_cookies_same_site_protection = :strict
-    
+
     config.api_only = true
   end
 end
