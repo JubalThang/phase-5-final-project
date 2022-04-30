@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+    include ActionController::Cookies
+    
 rescue_from ActiveRecord::RecordInvalid, with: :handle_unprocessable_entity
 rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
