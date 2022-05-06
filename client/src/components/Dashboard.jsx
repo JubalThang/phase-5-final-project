@@ -9,7 +9,7 @@ export default function Dashboard() {
                 <h1 className="pt-4 mb-8 font-bold text-2xl ">Departments </h1>
                 <div className="flex mb-8">
                     <DeptRow name="Audio and Visual" />
-                   <DeptRow name="Productions"/>
+                    <DeptRow name="Productions" />
                 </div>
             </div>
             <div>

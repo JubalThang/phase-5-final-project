@@ -6,15 +6,11 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
 
     before_action :confirm_authencation
-    helper_method :is_loggedin?
+    # helper_method :is_loggedin?
     
     private
     def current_user
         current_user ||= User.find_by(id: session[:uid])
-    end
-
-    def is_loggedin?
-        !current_user.nil?
     end
 
     def handle_unprocessable_entity(valid)
@@ -29,6 +25,6 @@ class ApplicationController < ActionController::API
     #     render json: {error: "Please log in!"}, status: :unauthorized unless session.include? :uid
     # end
     def confirm_authencation
-        render json: {error: "Please log in!"}, status: :unauthorized unless :is_loggedin?
+        render json: {error: "Please log in!"}, status: :unauthorized unless session.include? :uid
     end
 end

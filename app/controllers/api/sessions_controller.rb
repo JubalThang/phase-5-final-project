@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
   skip_before_action :confirm_authencation, only: [:create]
 
   def create
-    user = User.find(params[:email])
+    user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:uid] = user.id 
       current_user = user 
