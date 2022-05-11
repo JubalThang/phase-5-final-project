@@ -1,7 +1,13 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
 import Appbar from "./Appbar"
+import { CurrentUser } from "./Context/AppContexts"
 
-export default function Login({ setCurrentUser }) {
+export default function Login() {
+
+    const {setCurrentUser} = useContext(CurrentUser)
+
+    console.log('loginPage')
     function handldeOnClick(e) {
         e.preventDefault()
 

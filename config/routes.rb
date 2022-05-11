@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do 
     resources :users, only: [:index, :create]
     resources :departments, only: [:index, :create, :show]
-    resources :items, only: [:index, :create]
+    resources :items, only: [:index, :create, :destroy]
     resources :item_histories, only: [:index]
     
     post '/login', to: "sessions#create"

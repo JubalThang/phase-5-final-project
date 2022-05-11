@@ -1,8 +1,10 @@
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Appbar from './Appbar'
 
-export default function Signup({ setCurrentUser }) {
+export default function Signup() {
+
+  console.log('Signup Page')
   const navigate = useNavigate()
 
   function handldeOnClick(e) {
@@ -48,6 +50,7 @@ export default function Signup({ setCurrentUser }) {
           </div>
           <input type="submit" className=" shadow text-white font-bold text-2xl bg-cyan-500 hover:bg-cyan-100 cursor-pointer hover:text-gray-500 focus:border-cyan-500 w-full p-2 mt-8 "></input>
         </form>
+        <h1 className=" text-lg mt-4 w-1/2 text-gray-600 hover:text-cyan-500 "><Link to='/'>Already had an account?</Link></h1> 
       </div>
 
     </>
