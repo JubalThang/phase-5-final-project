@@ -3,6 +3,8 @@ import Sidebar from './Sidebar'
 import Dashboard from './Dashboard'
 import Department from "./Department";
 import Items from "./Items";
+import NewDepartmentForm from "./Department/NewDepartmentForm";
+import NewItemForm from "./Item/NewItemForm";
 
 export default function Home() {
 
@@ -14,6 +16,8 @@ export default function Home() {
                     <Route path='/' element={<Dashboard />} />
                     <Route path='/departments' element={<Department />} />
                     <Route path='/items' element={<Items />} />
+                    <Route path='/create_new_department' element={<NewDepartmentForm />} />
+                    <Route path='/create_new_item' element={<NewItemForm />} />
                 </Routes>
             </div>
         </div>

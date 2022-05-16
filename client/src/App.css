@@ -3,6 +3,6 @@
 @tailwind utilities;
 @layer components {
     .primary {
-        @apply px-4 py-2 bg-cyan-700 text-white rounded transition duration-500 ease-out
+        @apply font-bold px-4 py-2 border border-cyan-700 bg-cyan-700 text-white rounded transition duration-500 ease-out
     }
 }

@@ -29,10 +29,10 @@ export default function Navbar() {
             <Link to='/profile'>
                 <div className='flex flex-col mr-4'>
                     <div className=' text-base '>{currentUser.email}</div>
-                    <div className=' text-sm opacity-80'>{currentUser.church.name}</div>
+                    <div className=' text-sm opacity-80 '>{currentUser.church.name}</div>
                 </div>
             </Link>
-                <Link to='/'><h1 onClick={handleSignout} className=' rounded bg-cyan-800 hover:border hover:bg-cyan-500 px-3 py-2'>Sign Out</h1></Link>
+                <Link to='/'><h1 onClick={handleSignout} className=' primary hover:bg-cyan-500 '>Sign Out</h1></Link>
             </div>
         </div>
     )

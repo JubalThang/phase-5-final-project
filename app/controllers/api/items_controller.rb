@@ -5,12 +5,14 @@ class Api::ItemsController < ApplicationController
 
     def destroy
         item = find_item
-        if current_user.admin
-            item.destroy
-            header :no_content
-        else  
-            render json: {message: "You have no permission to delete this item"}, status: :unauthorized
-        end 
+        # if current_user.admin
+        #     item.destroy
+        #     header :no_content
+        # else  
+        #     render json: {message: "You have no permission to delete this item"}, status: :unauthorized
+        # end 
+       check_auth
+       item.destroy
     end
 
     def create
