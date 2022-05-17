@@ -4,6 +4,5 @@ class Department < ApplicationRecord
 
   belongs_to :church
   
-  
-  has_many :items
+  has_many :items, dependent: :destroy
 end

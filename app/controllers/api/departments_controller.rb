@@ -11,8 +11,12 @@ class Api::DepartmentsController < ApplicationController
     
     def create 
         # new department will create under user's church
-        department = current_user.church.departments.create!(department_params)
-        render json: department, status: :created
+        if current_user.admim
+            department = current_user.church.departments.create!(department_params)
+            render json: department, status: :created
+        else 
+            render json: {error: "You have no permissions to create department!"}, status: :unauthorized 
+        end
     end
 
     private 

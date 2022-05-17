@@ -1,11 +1,10 @@
-import { useContext, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { DeparmentsContext } from "./Context/AppContexts"
 import DeptRow from "./DeptRow"
 
 export default function Department() {
   const { departments } = useContext(DeparmentsContext)
-  const navigator = useNavigate()
  
   console.log(departments)
  

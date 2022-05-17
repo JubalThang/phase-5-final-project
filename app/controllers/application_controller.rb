@@ -10,6 +10,7 @@ class ApplicationController < ActionController::API
 
     before_action :confirm_authencation
     # helper_method :is_loggedin?
+    # before_action :check_auth
     
     private
     def current_user
@@ -32,9 +33,6 @@ class ApplicationController < ActionController::API
         render json: {message: "You have not authorized to do this!"}, status: :unauthorized unless is_admin?
     end
 
-    # def confirm_authencation
-    #     render json: {error: "Please log in!"}, status: :unauthorized unless session.include? :uid
-    # end
     def confirm_authencation
         render json: {error: "Please log in!"}, status: :unauthorized unless session.include? :uid
     end

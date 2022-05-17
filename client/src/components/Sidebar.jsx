@@ -1,7 +1,10 @@
-import React from 'react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { CurrentUser } from './Context/AppContexts'
 
 export default function SideBar() {
+
+    const { currentUser } = useContext(CurrentUser)
 
     const NavBtn = ({ text }) => {
         return (
@@ -20,6 +23,13 @@ export default function SideBar() {
                 <NavLink to="/items" className={({ isActive }) => isActive ? 'bg-gray-200 rounded-md text-gray-800 mt-4' : 'mt-4'}>
                     <NavBtn text="Items" />
                 </NavLink>
+
+                {
+                    currentUser.admin && 
+                    <NavLink to="/users" className={({ isActive }) => isActive ? 'bg-gray-200 rounded-md text-gray-800 mt-4' : 'mt-4'}>
+                        <NavBtn text="Users" />
+                    </NavLink>
+                }
             </div>
         </div>
     )

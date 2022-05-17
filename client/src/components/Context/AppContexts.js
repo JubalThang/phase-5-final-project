@@ -5,3 +5,5 @@ export const CurrentUser = createContext(null)
 export const DeparmentsContext = createContext(null)
 
 export const ItemsContext = createContext(null)
+
+export const UsersContext = createContext(null)

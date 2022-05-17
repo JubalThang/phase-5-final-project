@@ -12,6 +12,7 @@ export default function AuthencatedApp() {
     const [departments, setDepartments] = useState(null)
     const [items, setItems] = useState(null)
 
+
     useEffect(() => {
         fetch('/api/departments')
             .then(res => {

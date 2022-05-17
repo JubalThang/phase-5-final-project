@@ -8,6 +8,7 @@ export default function NewDepartmentForm() {
     const {departments,setDepartment} = useContext(DeparmentsContext)
 
     function handldeOnClick(e) {
+        e.preventDefault()
         const body = {
             "department": {
                 "name": e.target.department.value
@@ -26,7 +27,7 @@ export default function NewDepartmentForm() {
                 res.json().then(dep => setDepartment(...departments, dep))
                 navigator('/')
             } else {
-                res.json().then(error => console.error(error))
+                res.json().then(error => console.log(error))
             }
         })
     }

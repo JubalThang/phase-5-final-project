@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   validates :sn, uniqueness: { scope: [ :model_no ] }
 
-  has_one :item_history
+  has_one :item_history, dependent: :destroy
   belongs_to :department
 
 
