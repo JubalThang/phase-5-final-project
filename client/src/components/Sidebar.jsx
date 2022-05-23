@@ -26,8 +26,8 @@ export default function SideBar() {
 
                 {
                     currentUser.admin && 
-                    <NavLink to="/users" className={({ isActive }) => isActive ? 'bg-gray-200 rounded-md text-gray-800 mt-4' : 'mt-4'}>
-                        <NavBtn text="Users" />
+                    <NavLink to="/members" className={({ isActive }) => isActive ? 'bg-gray-200 rounded-md text-gray-800 mt-4' : 'mt-4'}>
+                        <NavBtn text="Members" />
                     </NavLink>
                 }
             </div>

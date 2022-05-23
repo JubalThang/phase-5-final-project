@@ -37,8 +37,8 @@ export default function Home() {
                         <Route path='/items' element={<Items />} />
                         <Route path='/create_new_department' element={<NewDepartmentForm />} />
                         <Route path='/create_new_item' element={<NewItemForm />} />
-                        <Route path='/users' element={<Users />} />
-                        <Route path='/create_user' element={<CreateNewUser />} />
+                        <Route path='/members' element={<Users />} />
+                        <Route path='/add_user' element={<CreateNewUser />} />
                     </Routes>
                 </UsersContext.Provider>
             </div>

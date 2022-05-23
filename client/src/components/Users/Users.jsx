@@ -7,7 +7,9 @@ export default function Users() {
   return (
     <div>
       {
-        users ? <div>{users.length}</div> : <div>No Users</div>
+        users ? (
+            users.map(user => <h1>{user.email}</h1>)
+          ) : (<div>No Users</div>)
       }
       </div>
   )

@@ -56,3 +56,6 @@
 ## Functions ##
 - Must create an account to access the website
 - Only admin can create/edit/delete department and items  
+
+# Features #
+- Create a new account or Sign in with existing account

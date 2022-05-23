@@ -14,6 +14,7 @@ export default function Signup() {
         "email" : e.target.email.value,
         "password" : e.target.password.value,
         "password_confirmation" : e.target.confirmPassword.value,
+        "admin": true,
         "church_attributes" : {
           "name" : e.target.church.value
         }
