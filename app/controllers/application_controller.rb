@@ -9,8 +9,6 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :check_auth
 
     before_action :confirm_authencation
-    # helper_method :is_loggedin?
-    # before_action :check_auth
     
     private
     def current_user
@@ -21,8 +19,8 @@ class ApplicationController < ActionController::API
         render json: valid, status: :unprocessable_entity
     end
 
-    def handle_not_found
-        render json: {error: "Record not found"}, status: :not_found
+    def handle_not_found(e)
+        render json: {error: e.message }, status: :not_found
     end
 
     def is_admin?

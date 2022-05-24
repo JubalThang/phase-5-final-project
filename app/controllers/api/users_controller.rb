@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-    skip_before_action :confirm_authencation, only: [:create, :show, :members]
+    skip_before_action :confirm_authencation, only: [:create, :show]
 
     def index 
         render json: User.all 
@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
     end
 
     def members 
-        # render json: User.church.where(name: current_user.church.name)
+        # render only users that has same church with current user
         render json: User.all.where(:church => current_user.church)
     end
 
