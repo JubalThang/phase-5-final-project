@@ -9,7 +9,7 @@ export default function Items() {
 
   if (!items) { return <div></div> }
 
-
+  // console.log(items)
   return (
     <div className="p-8">
       <div className=' flex mb-8 justify-between '>
@@ -19,7 +19,7 @@ export default function Items() {
       </div>
       <div className='flex flex-wrap mt-8'>
         {
-          items && items.map((item, index) => <ItemRow key={item.id} item={item} index={index} />)
+          items && items.map((item, index) => <ItemRow key={item.id} item={item} index={index} id={item.id}/>)
         }
       </div>
     </div>

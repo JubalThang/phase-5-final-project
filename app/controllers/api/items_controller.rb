@@ -7,16 +7,16 @@ class Api::ItemsController < ApplicationController
         item = find_item
         if current_user.admin
             item.destroy
-            header :no_content
+            head :no_content
         else  
             render json: {message: "You have no permission to delete this item"}, status: :unauthorized
         end 
     end
 
     def create
-        department = Department.find_by(params[:department_id])
+        department = Department.find_by(id: params[:item][:department_id])
         if current_user.admin
-            item = department.items.create!(item_params)
+            item = department.items.create(item_params)
             render json: item, status: :created
         else 
             render json: {message: "You have no permission to create this item"}, status: :unauthorized

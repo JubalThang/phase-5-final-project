@@ -8,9 +8,9 @@ export default function NewItemForm() {
     const {departments} = useContext(DeparmentsContext)
     const { items, setItems } = useContext(ItemsContext)
 
-    const[error, setError] = useState('')
-
     const navigate = useNavigate()
+
+    const[error, setError] = useState('')
 
     function handldeOnClick(e) {
         e.preventDefault()
@@ -19,14 +19,13 @@ export default function NewItemForm() {
                 "model_no": e.target.model_no.value,
                 "sn" : e.target.serial_no.value,
                 "department_id" : e.target.department.value,
-                "item_history_attribute" : {
+                "item_history_attributes" : {
                     "dop" : e.target.dop.value,
                     "price" : e.target.price.value,
                     "receive_img" : e.target.receive_img.value
                 }
             }
         }
-
         fetch('/api/items', {
             method : 'POST',
             headers : {
@@ -36,12 +35,14 @@ export default function NewItemForm() {
         })
         .then(res => {
             if (res.ok) {
-                res.json().then(item => setItems(...items, item))
-                navigate('/')
+                res.json().then(item => {
+                    // console.log(item)
+                    setItems([...items, item])
+                    navigate('/')
+                })
             }
             else {
                 res.json().then(error => setError(error))
-                
             }
         })
     }

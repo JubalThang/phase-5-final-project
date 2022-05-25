@@ -21,9 +21,23 @@ export default function Signup() {
       }
     }
 
-    console.log(body)
-
-    navigate('/')
+    fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    .then(res => {
+      if (res.ok) {
+        console.log('Successfully created!')
+        navigate('/')
+      }
+      else {
+        res.json().then(error => console.log(error))
+      }
+    })
+    e.target.reset()
   }
 
   const marginTop = ' mt-8 '

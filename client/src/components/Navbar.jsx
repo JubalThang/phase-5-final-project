@@ -22,7 +22,7 @@ export default function Navbar() {
             })
     }
     return (
-        <div className='flex justify-between h-16 px-8 items-center bg-cyan-500 text-white font-bold'>
+        <div className='flex justify-between h-16 px-8 items-center bg-cyan-500 text-white font-bold w-screen'>
             <h1 className="text-2xl">Church Inventory Management</h1>
             
             <div className=" flex items-center ">

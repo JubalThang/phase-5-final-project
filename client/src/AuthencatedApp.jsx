@@ -28,6 +28,9 @@ export default function AuthencatedApp() {
                 if (res.ok) {
                     res.json().then(d => setItems(d))
                 }
+                else {
+                    res.json().then(err => console.error(err))
+                }
             })
     }, [])
 
@@ -40,7 +43,6 @@ export default function AuthencatedApp() {
                         <Route path="*" element={<Home />} />
                         <Route path="/profile" element={<Profile />} />
                     </Routes>
-
                 </ItemsContext.Provider>
             </DeparmentsContext.Provider>
         </>

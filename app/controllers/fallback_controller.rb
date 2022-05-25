@@ -3,7 +3,7 @@
 
 class FallbackController < ActionController::Base
     def index 
-        rend file: "public/index.html"
+        render file: "public/index.html"
         # actual the index file isn't there in public folder yet
         # create package.json code package.json in project folder
     end
