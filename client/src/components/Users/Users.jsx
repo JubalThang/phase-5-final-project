@@ -14,7 +14,7 @@ export default function Users() {
     })
   },[])
   return (
-    <div>
+    <div className=' p-4 '>
       {
         users ? (
             users.map(user => <h1 key={user.email}>{user.email}</h1>)

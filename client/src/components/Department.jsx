@@ -18,7 +18,7 @@ export default function Department() {
       </div>
       <div className='flex flex-wrap h-20 '>
         {
-          departments.map(department => <DeptRow key={department.name} name={department.name} count={department.items.length} id={department.id}/>)
+          departments.map(department => <DeptRow key={department.name} dept={department} count={department.items.length} admin={currentUser.admin}/>)
         }
       </div>
     </div>

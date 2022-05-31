@@ -11,9 +11,9 @@ export default function Dashboard() {
         <div className=" p-8 ">
             <div>
                 <h1 className="pt-4 mb-8 font-bold text-2xl ">Departments  </h1>
-                <div className="flex mb-8">
+                <div className="flex mb-8 flex-wrap">
                     {
-                        departments && ( departments.map(department =>  <DeptRow key={department.name} name={department.name} />)   ) 
+                        departments && ( departments.map(department =>  <DeptRow key={department.name} dept={department} />)   ) 
                     }
                 </div>
             </div>
