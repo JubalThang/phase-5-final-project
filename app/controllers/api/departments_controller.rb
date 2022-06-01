@@ -11,11 +11,21 @@ class Api::DepartmentsController < ApplicationController
     
     def create 
         # new department will create under user's church
-        if current_user.admim
+        if current_user.admin
             department = current_user.church.departments.create!(department_params)
             render json: department, status: :created
         else 
             render json: {error: "You have no permissions to create department!"}, status: :unauthorized 
+        end
+    end
+
+    def destroy  
+        find_department
+       
+        if current_user.admin
+            @department.destroy
+        else
+            render json: {error: "You have no permissions to destroy department"}, status: :unauthorized
         end
     end
 

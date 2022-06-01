@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <div className="flex">
             <Sidebar />
-            <div className=" flex-grow-0">
+            <div className=" flex-grow">
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
                     <Route path='/departments' element={<Department />} />

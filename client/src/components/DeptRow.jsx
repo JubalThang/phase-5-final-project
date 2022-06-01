@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DeparmentsContext } from './Context/AppContexts'
 
 export default function DeptRow({ dept, count, admin }) {
+    const {departments, setDepartments} = useContext(DeparmentsContext)
     function handleDelete() {
-        fetch('api/deparments/' + dept.id, {
+        fetch('api/departments/' + dept.id, {
             method: 'DELETE'
         })
         .then(res => {
             if(res.ok) {
-                console.log('Successfully deleted.')
+                setDepartments(departments.filter(d => d.id !== dept.id))
             } else {
                 alert('You have no permissions to perform this action!')
             }

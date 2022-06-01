@@ -5,7 +5,7 @@ import { DeparmentsContext } from "../Context/AppContexts"
 
 export default function NewDepartmentForm() {
     const navigator = useNavigate()
-    const {departments,setDepartment} = useContext(DeparmentsContext)
+    const {departments,setDepartments} = useContext(DeparmentsContext)
 
     function handldeOnClick(e) {
         e.preventDefault()
@@ -14,7 +14,6 @@ export default function NewDepartmentForm() {
                 "name": e.target.department.value
             }
         }
-
         fetch('/api/departments', {
             method: 'POST',
             headers: {
@@ -24,8 +23,10 @@ export default function NewDepartmentForm() {
         })
         .then(res => {
             if(res.ok) {
-                res.json().then(dep => setDepartment(...departments, dep))
-                navigator('/')
+                res.json().then(dep => {
+                    setDepartments([...departments, dep])
+                    navigator('/')
+                })
             } else {
                 res.json().then(error => console.log(error))
             }

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function Users() {
   const [users, setUsers] = useState(null) 
@@ -15,6 +16,7 @@ export default function Users() {
   },[])
   return (
     <div className=' p-4 '>
+       <Link to='/add_user'>Add New User</Link>
       {
         users ? (
             users.map(user => <h1 key={user.email}>{user.email}</h1>)
