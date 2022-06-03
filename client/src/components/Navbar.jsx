@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { CurrentUser } from './Context/AppContexts'
 
 export default function Navbar() {
-    console.log("navbar")
+    // console.log("navbar")
     const navigate = useNavigate()
 
     const {currentUser, setCurrentUser} = useContext(CurrentUser)
